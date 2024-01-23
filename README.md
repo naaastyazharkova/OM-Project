@@ -1,1 +1,1 @@
-Open Meetings project
+# Open Meetings project
