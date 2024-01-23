@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  postgresdb:
+    image: postgres
+    environment:
+      POSTGRES_DB: "postOM"
+      POSTGRES_USER: "userOM"
+      POSTGRES_PASSWORD: "SuperPassQQQ"
+    ports:
+      - "5432:5432"
+    network_mode: host
+    
+  om-proj:
+    build:
+      context: openmeetings-docker
+      dockerfile: Dockerfile
+    environment:
+      - OM_DB_HOST=127.0.0.1
+      - OM_DB_PORT=5432
+      - OM_DB_TYPE=postgresql
+      - OM_DB_USER=userOM
+      - OM_DB_NAME=postOM
+      - OM_DB_PASS=SuperPassQQQ
+    network_mode: host
+  
+
